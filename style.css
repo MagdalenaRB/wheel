@@ -26,9 +26,9 @@ h1{
 	text-align: center;
 }
 canvas{
-	margin-top: 10px;
-	position: relative;
-	z-index: 1;
+	margin-top:10px;
+	position:relative;
+	z-index:1;
 }
 button{
 	position: relative;
