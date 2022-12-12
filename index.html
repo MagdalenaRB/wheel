@@ -5,9 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wheel</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="./style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div class="contenedor">
+        <div class=" concursantes">
+            <canvas id="idcanvas" width="600" height="600"></canvas>
+            <br>
+            <button onclick="sortear()"><span id="idestado">Sortear</span></button>
+            <div class="mark-winner"></div>
+        </div>
+    </div>
+    <script type="tex/javascript">
+        const array_concursantes =[ 'Anyi', 'Clauddette', 'Cele', 'Magda'];
+        let canvas = document.getElementById("idcanvas");
+        let context = canvas.getContext("2d");
+        let center = canvas.width/2;
+
+        for(var i=0; i < array_concursantes.length; i++) {
+            context.beginPath();
+            context.moveTo(center,center);
+            context.arc(center,center,center-20,i*2*Math.PI/array_concursantes.length,(i+1)*2*Math.PI/array_concursantes.length);
+            context.fillStyle =random_color();
+            context.fill();
+        }
+        function random_color(){
+            let ar_digit = ['2','3','4','5','6','7','8','9'];
+            let color = '';
+            let i=0;
+            while(i < 6){
+                let pos = Math.round(Math.random()*ar_digit.length-1);
+                color = color +''+ar_digit[pos]; i++
+            }
+            return '#'+color;
+        }
+    </script>
+
     <script src="./script.js"></script>
 </body>
 </html>
